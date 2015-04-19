@@ -1,0 +1,15 @@
+<br/>
+<br/>
+<% @computer_choice = ['r', 'p', 's'].sample%>
+<%if @computer_choice == session[:pc] %>
+  <p> You both chose <%= session[:pc].upcase %> It's a tie</p>
+<% elsif (session[:pc] == 'p' && @computer_choice == 'r') || (session[:pc] == 'r' && @computer_choice == 's') || (session[:pc] == 's' && @computer_choice == 'p') %>
+  <p>You chose <span style="font-weight:bold"> <%= session[:pc].upcase %> </span> and the computer chose <span style="font-weight:bold"> <%= @computer_choice.upcase %> </span> You win!</p>
+<% else %>
+  <p>You chose <span style="font-weight:bold"> <%= session[:pc].upcase %> </span> and the computer chose <span style="font-weight:bold"> <%= @computer_choice.upcase %> </span> Computer wins</p>
+<% end %>
+
+<h5>Do you want to play again?</h5>
+
+<a class="btn btn-default" href="/" role="button">Yes</a>
+<a class="btn btn-default" href="/bye" role="button">No</a>
