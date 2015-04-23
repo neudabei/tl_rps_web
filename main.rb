@@ -13,7 +13,8 @@ post '/set_choice' do
   if session[:pc].downcase == 's' || session[:pc].downcase == 'p' || session[:pc].downcase == 'r'
   redirect '/game'
   else
-    @error = "You have to choose between p, r, s. Please enter your choice again!"
+    @error = "Choice is required"
+    halt erb :set_choice
   end
 end
 
